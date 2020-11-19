@@ -479,6 +479,15 @@ module.exports = HandleMsg = async (aruga, message) => {
                 aruga.reply(from, 'Ada yang Error!', id)
             })
             break
+	case 'tiktok':
+            if (args.length == 0) return pakforlay.reply(from, `Untuk mendownload video tiktok\nketik: ${prefix}tiktok [link_tik]`, id)
+			await pakforlay.reply(from, `_Tunggu, sedang memproses perintah_\n*Jika Bot Tidak mengirim Video. Tunggu Satu Menit, lalu jalani kembali perintah yang dikirimkan.*`, id)
+            const tiktok = await rugaapi.tiktok(args[0])
+            await pakforlay.sendFileFromUrl(from, tiktok, `Sukses mengunduh Video Tiktok tanpa Watermark Menggunakan Bot WhatsApp PakForlay`, id)
+            .catch(() => {
+                pakforlay.reply(from, 'Ada yang Error!', id)
+            })
+            break
         case 'ytmmp3':
             if (args.length == 0) return aruga.reply(from, `Untuk mendownload lagu dari youtube\nketik: ${prefix}ytmp3 [link_yt]`, id)
             rugaapi.ytmp3(args[0])

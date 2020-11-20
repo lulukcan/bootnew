@@ -480,12 +480,12 @@ module.exports = HandleMsg = async (aruga, message) => {
             })
             break
 	case 'tiktok':
-            if (args.length == 0) return pakforlay.reply(from, `Untuk mendownload video tiktok\nketik: ${prefix}tiktok [link_tik]`, id)
-			await pakforlay.reply(from, `_Tunggu, sedang memproses perintah_\n*Jika Bot Tidak mengirim Video. Tunggu Satu Menit, lalu jalani kembali perintah yang dikirimkan.*`, id)
+            if (args.length == 0) return aruga.reply(from, `Untuk mendownload video tiktok\nketik: ${prefix}tiktok [link_tik]`, id)
+			await aruga.reply(from, `_Tunggu, sedang memproses perintah_\n*Jika Bot Tidak mengirim Video. Tunggu Satu Menit, lalu jalani kembali perintah yang dikirimkan.*`, id)
             const tiktok = await rugaapi.tiktok(args[0])
-            await pakforlay.sendFileFromUrl(from, tiktok, `Sukses mengunduh Video Tiktok tanpa Watermark Menggunakan Bot WhatsApp PakForlay`, id)
+            await aruga.sendFileFromUrl(from, tiktok, `Sukses mengunduh Video Tiktok tanpa Watermark Menggunakan Bot WhatsApp LAC BoT`, id)
             .catch(() => {
-                pakforlay.reply(from, 'Ada yang Error!', id)
+                aruga.reply(from, 'Ada yang Error!', id)
             })
             break
         case 'ytmmp3':
